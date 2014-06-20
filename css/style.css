@@ -1,0 +1,82 @@
+.wrapper{
+	margin-left: 200px;
+}
+.ukraine{
+	fill: #fff;
+    stroke: #ccc;
+    stroke-width: 1px;
+}
+.provinces{
+	fill: #fff;
+    stroke: #ccc;
+    stroke-width: 0.5px;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.gratBackground{
+	fill: #D5E3FF;
+}
+
+.gratLines {
+	 fill: none;
+	 stroke: #999;
+	 stroke-width: 1px;
+ }
+
+.countries{
+	fill:black;
+	stroke: #ccc;
+    stroke-width: 1px;
+	
+}
+
+.subunit-boundary {
+  fill: none;
+  stroke: #777;
+  stroke-dasharray: 2,2;
+  stroke-linejoin: round;
+}
+
+.subunit-boundary.IRL {
+  stroke: #aaa;
+}
+
+ svg{
+	 position: absolute;
+ }
+ 
+ .infolabel {
+	position: absolute;
+	width: 300px;
+	height: 50px;
+	color: #fff;
+	background-color: #000;
+	border: solid thin #fff;
+	padding: 5px;
+}
+
+.infolabel h1 {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	line-height: 1em;
+}
+
+.infolabel b {
+	float: left;
+}
+
+.labelName {
+	display: inline-block;
+	float: right;
+	margin: -25px 0px 0px 40px;
+	font-size: 1em;
+	font-weight: bold;
+	position: absolute;
+}
