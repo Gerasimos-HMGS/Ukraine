@@ -140,6 +140,7 @@ map.append("path")
 d3.csv("data/ukraineData2.csv", function(csvData){
 
 var recolorMap = colorScale(csvData);
+drawLegend(csvData);
 
 
 d3.json("data/ukraine_provinces2.topojson", function(error, uk){
@@ -203,11 +204,29 @@ d3.json("data/ukraine_provinces2.topojson", function(error, uk){
 }; //end of setMap()
 
 
+
+function colorClass(){
+	//<-colorScale
+	//<-drawLegend
+	
+	return [
+			"#fdcc8a",
+			"#fc8d59",
+			"#e34a33",
+			"#b30000"
+	];
+};
+
+
+
 function colorScale(csvData){
 
 	//create quantile classes with color scale
+	var colors = colorClass();
 	var color = d3.scale.quantile() //designate quantile scale generator
-		.range([
+		.range(colors);
+		/*
+.range([
 			
 			"#fdcc8a",
 			"#fc8d59",
@@ -215,6 +234,7 @@ function colorScale(csvData){
 			"#b30000"
 		]);
 		
+*/
 		//set min and max data values as domain
 	color.domain([
 		d3.min(csvData, function(d) { return Number(d[expressed]); }),
@@ -288,12 +308,111 @@ function datatest (data){
 	
 };
 
+function computeBounds(csvData){
+	//<-colorScale
+	//<-updateLegend
+	
+	//set min and max values for current dataset
+	var datamin = d3.min(csvData, function(d){
+		return Number(d[expressed]);
+	});
+	var datamax = d3.max(csvData, function(d){
+		return Number(d[expressed]);
+	});
+	
+	return [datamin,datamax]; //array with upper and lower bounds
+}
+
 function moveLabel(){
 	var x=d3.event.clientX+10;
-	var y=d3.event.clientY-75;
+	var y=d3.event.clientY-200;
 	d3.selectAll(".infolabel")
 		.style("margin-left", x+"px")
 		.style("margin-top", y+"px");
 };
+
+function drawLegend(csvData) {
+	//<-setMap d3.csv
+	
+	var colorsArray = colorClass(); //-> get the array of choropleth colors
+	
+	//create a legend div
+	var legend = d3.select("body")
+		.append("div")
+		.attr("id", "legend");
+	
+	//create the legend title in a child div
+	var legtitle = legend.append("div")
+		.attr("id","legtitle")
+		.html("<h2>%Russian Speakers</h2>")
+		
+	//create a child div to hold the color scale
+	var legendColors = legend.append("div")
+		.attr("id", "legendColors");
+		
+	//create and color each div in the color scale
+	var colorbox = legendColors.selectAll(".colorbox")
+		.data(colorsArray.reverse()) //highest value on top
+		.enter()
+		.append("div")
+		.attr("class","colorbox")
+		.style("background-color", function(d){
+			return d;
+		});
+		
+	//create a div for the number scale
+	var legendScale = legend.append("div")
+		.attr("id", "legendScale");
+	
+	//create a div for the attribute name	
+	var attributeName = legend.append("div")
+		.attr("id","attributeName");
+	
+		
+	//fill in the legend with dynamic data	
+	updateLegend(csvData); //->
+};
+
+function updateLegend(csvData){
+	//<-drawLegend
+	//<-sequence
+	
+	//generate an array of legend values
+	var colScale = colorScale(csvData); //-> get the quantile scale generator
+	var quantiles = colScale.quantiles(); //get the quantile bounds
+	var databounds = computeBounds(csvData); //-> get the upper and lower data bounds // this is the problem
+	var datascale = [databounds[1]]; //create an array variable for numbers with upper limit
+	//add middle quantile bounds to array
+	for (var i=quantiles.length-1; i>=0; i--){
+		datascale.push(quantiles[i]); 
+	};
+	datascale.push(databounds[0]); //add lower limit to array
+	
+	var legend = d3.select("#legend"); //select the legend div
+	
+	//create a separate div to hold each number in the number scale
+	var legendNum = legend.select("#legendScale")
+		.selectAll(".legendNum")
+		.data(datascale)
+		.enter()
+		.append("div")
+		.attr("class","legendNum")
+		.html(function(d){
+			return Math.round(d)
+		});
+		
+	//update the numbers according to the current datascale
+	legend.selectAll(".legendNum")
+		.html(function(d){
+			return Math.round(d)
+		});
+	
+	//update the attribute name according to the current attribute	
+	/*
+legend.select("#attributeName")
+		.html("<h3>"+expressed+"</h3>");	
+*/
+};
+
 
 
