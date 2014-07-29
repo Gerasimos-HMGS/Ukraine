@@ -11,14 +11,16 @@ function initialize(){
 
 function setMap(){
 
+	
+   
 
-
-	var width = 1200;
+	
+	var width =1200;
 	var height= 460;
 	
 	var map= d3.select("body")
 			.append("svg")
-			.attr("width",width)
+			.attr("width","100%")
 			.attr("height",height);
 		/* 	.attr("class","wrapper"); */
 			
