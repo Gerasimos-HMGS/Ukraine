@@ -13,7 +13,7 @@ function setMap(){
 
 
 
-	var width = 1200;
+	var width = 1250;
 	var height= 460;
 	
 	var map= d3.select("body")
@@ -344,7 +344,7 @@ function drawLegend(csvData) {
 	//create the legend title in a child div
 	var legtitle = legend.append("div")
 		.attr("id","legtitle")
-		.html("<h2>%Russian Speakers</h2>")
+		.html("<h3>%Russian Speakers</h3>")
 		
 	//create a child div to hold the color scale
 	var legendColors = legend.append("div")
