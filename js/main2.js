@@ -14,13 +14,10 @@ function setMap(){
 	
    
 
-<<<<<<< HEAD
-	
-	var width =1200;
-=======
 
-	var width = 1250;
->>>>>>> master
+	
+	var width =960;
+
 	var height= 460;
 	
 	var map= d3.select("body")
