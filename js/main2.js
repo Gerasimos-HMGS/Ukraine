@@ -20,9 +20,9 @@ function setMap(){
 
 	var height= 460;
 	
-	var map= d3.select("body")
+	var map= d3.select("#wrapper")
 			.append("svg")
-			.attr("width","100%")
+			.attr("width",width)
 			.attr("height",height);
 		/* 	.attr("class","wrapper"); */
 			
@@ -79,7 +79,8 @@ map.append("path")
 */
 		
 	/*
-	svg.append("path")
+	
+	.append("path")
     .datum(topojson.mesh(uk, uk.objects.ukrainetopo, function(a, b) { return a !== b && a.id !== 		"IRL"; }))
     .attr("d", path)
     .attr("class", "subunit-boundary");
@@ -341,7 +342,7 @@ function drawLegend(csvData) {
 	var colorsArray = colorClass(); //-> get the array of choropleth colors
 	
 	//create a legend div
-	var legend = d3.select("body")
+	var legend = d3.select("#wrapper")
 		.append("div")
 		.attr("id", "legend");
 	
