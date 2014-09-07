@@ -1,8 +1,10 @@
 #img1{
-	width:100%;
+	/* width:100%; */
 }
-.wrapper{
-	width:100%;	
+#wrapper{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
 }
 /*
 .wrapper2{
@@ -59,7 +61,8 @@
 }
 
  svg{
-	 position: absolute;
+	 position: relative;
+/* 	 text-align: center; */
  }
  
  .infolabel {
@@ -98,10 +101,11 @@
 
 #legend {
 	padding: 25px 10px 30px 10px;
-	margin-left: 800px;
+	margin-left: 750px;
 	border: 0px solid black;
 	background-color: rgba(255,247,148,0.9);
 	position: absolute;
+	top: 270px;
 }
 #legendColors {
 	float: left;
