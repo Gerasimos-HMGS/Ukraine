@@ -290,7 +290,7 @@ function highlight(data){
 	
 	/* var labelName=props.NAME;	 */
 	
-	var infolabel=d3.select("body").append("div")
+	var infolabel=d3.select("#wrapper").append("div")
 		.attr("class","infolabel")
 		.attr("id", props.NAME_1+"label")
 		.html(labelAttribute);
@@ -330,7 +330,7 @@ function computeBounds(csvData){
 
 function moveLabel(){
 	var x=d3.event.clientX+10;
-	var y=d3.event.clientY-200;
+	var y=d3.event.clientY;//+300;
 	d3.selectAll(".infolabel")
 		.style("margin-left", x+"px")
 		.style("margin-top", y+"px");
