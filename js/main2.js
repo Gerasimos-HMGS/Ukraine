@@ -34,8 +34,8 @@ var projection = d3.geo.albersUsa()
 */
 
 var projection = d3.geo.mercator()
-    .scale(6000)
-    .center([390, 50])
+    .scale(7000)
+    .center([395, 50])
     .translate([width / 2, height / 2])
     .precision(.1);
 
@@ -138,6 +138,209 @@ map.append("path")
 		
 	});
 	
+	d3.json("data/russia.topojson", function(error, ru){
+	var russia = map.append("path")
+		.datum(topojson.object(ru,ru.objects.russiatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/albania.topojson", function(error, al){
+	var albania = map.append("path")
+		.datum(topojson.object(al,al.objects.albaniatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/austria.topojson", function(error, au){
+	var austria = map.append("path")
+		.datum(topojson.object(au,au.objects.austriatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/bosnia.topojson", function(error, bo){
+	var bosnia = map.append("path")
+		.datum(topojson.object(bo,bo.objects.bosniatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/bulgaria.topojson", function(error, bu){
+	var bulgaria = map.append("path")
+		.datum(topojson.object(bu,bu.objects.bulgariatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/czech.topojson", function(error, cz){
+	var czech = map.append("path")
+		.datum(topojson.object(cz,cz.objects.czechtopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/germany.topojson", function(error, ge){
+	var germany = map.append("path")
+		.datum(topojson.object(ge,ge.objects.germanytopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/kosova.topojson", function(error, ko){
+	var kosova = map.append("path")
+		.datum(topojson.object(ko,ko.objects.kosovatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+
+	d3.json("data/greece.topojson", function(error, gr){
+	var greece = map.append("path")
+		.datum(topojson.object(gr,gr.objects.greecetopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/lithuania.topojson", function(error, li){
+	var lithuania = map.append("path")
+		.datum(topojson.object(li,li.objects.lithuania))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/latvia.topojson", function(error, la){
+	var latvia = map.append("path")
+		.datum(topojson.object(la,la.objects.latviatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/france.topojson", function(error, fr){
+	var france = map.append("path")
+		.datum(topojson.object(fr,fr.objects.francetopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/macedonia.topojson", function(error, ma){
+	var macedonia = map.append("path")
+		.datum(topojson.object(ma,ma.objects.macedoniatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	d3.json("data/serbia.topojson", function(error, se){
+	var serbia = map.append("path")
+		.datum(topojson.object(se,se.objects.serbia))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/slovenia.topojson", function(error, sl){
+	var slovenia = map.append("path")
+		.datum(topojson.object(sl,sl.objects.slovenia))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/montenegro.topojson", function(error, mo){
+	var montenegro = map.append("path")
+		.datum(topojson.object(mo,mo.objects.montenegrotopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/croatia.topojson", function(error, cr){
+	var croatia = map.append("path")
+		.datum(topojson.object(cr,cr.objects.croatiatopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/belgium.topojson", function(error, be){
+	var belgium = map.append("path")
+		.datum(topojson.object(be,be.objects.belgiumtopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/denmark.topojson", function(error, den){
+	var denmark = map.append("path")
+		.datum(topojson.object(den,den.objects.denmarktopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/italy.topojson", function(error, it){
+	var italy = map.append("path")
+		.datum(topojson.object(it,it.objects.italytopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/turkey.topojson", function(error, tu){
+	var turkey = map.append("path")
+		.datum(topojson.object(tu,tu.objects.turkeytopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/sweden.topojson", function(error, se){
+	var sweden = map.append("path")
+		.datum(topojson.object(se,se.objects.swedentopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	d3.json("data/switzerland.topojson", function(error, sw){
+	var switzerland = map.append("path")
+		.datum(topojson.object(sw,sw.objects.switzerlandtopo))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/kazakstan.topojson", function(error, ka){
+	var kazakstan = map.append("path")
+		.datum(topojson.object(ka,ka.objects.kazakstan))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	d3.json("data/georgia.topojson", function(error, ge){
+	var georgia = map.append("path")
+		.datum(topojson.object(ge,ge.objects.collection))
+		.attr("class","countries")
+		.attr("d",path)
+		
+	});
+	
+	
+	
+
+
+
 	
 	
 	
