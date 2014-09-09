@@ -35,7 +35,7 @@ var projection = d3.geo.albersUsa()
 
 var projection = d3.geo.mercator()
     .scale(7000)
-    .center([395, 50])
+    .center([391.5, 50])
     .translate([width / 2, height / 2])
     .precision(.1);
 
